@@ -6,8 +6,8 @@ A collection of React Email templates for Hodge Luke corporate communications.
 
 1. Corporate Signature - Professional email signature with company branding
 2. Newsletter - Smart brevity style newsletter
-3. Welcome Email (coming soon)
-4. Project Update (coming soon)
+3. Engagement Letter - Professional project engagement and terms
+4. Welcome Email (coming soon)
 
 ## Setup
 
@@ -78,6 +78,39 @@ await sendEmail({
 });
 ```
 
+### Engagement Letter
+
+```javascript
+import { EngagementLetterTemplate } from './templates/EngagementLetterTemplate';
+
+const engagement = {
+  clientName: "Client Company Name",
+  projectName: "Digital Transformation Initiative",
+  scope: [
+    "Digital strategy assessment",
+    "Infrastructure modernization",
+    "Process automation"
+  ],
+  deliverables: [
+    "Strategy roadmap",
+    "Implementation timeline",
+    "ROI projections"
+  ],
+  investment: {
+    amount: "$75,000",
+    terms: "50% upon signing, 25% at midpoint, 25% upon completion"
+  },
+  timeline: "12 weeks"
+};
+
+await sendEmail({
+  to: 'client@company.com',
+  subject: 'Hodge Luke - Project Engagement Letter',
+  template: EngagementLetterTemplate,
+  templateProps: engagement
+});
+```
+
 ## Utility Functions
 
 The repository includes a `sendEmail` utility function that provides error handling and consistent email sending:
@@ -92,6 +125,50 @@ await sendEmail({
   templateProps: {} // Optional props for the template
 });
 ```
+
+## Next Steps
+
+Future templates planned for development:
+
+1. Project Status Update Template
+   - Weekly/monthly progress reports
+   - Milestone achievements
+   - Key metrics and KPIs
+
+2. Meeting Summary Template
+   - Action items
+   - Decisions made
+   - Next steps
+
+3. Technical Documentation Template
+   - System updates
+   - Implementation guides
+   - Configuration changes
+
+4. Training Announcement Template
+   - Session details
+   - Prerequisites
+   - Registration links
+
+5. Service Launch Template
+   - New feature announcements
+   - Benefits and improvements
+   - Getting started guides
+
+6. Client Feedback Template
+   - Satisfaction surveys
+   - Feature requests
+   - Testimonial requests
+
+7. Project Completion Template
+   - Final deliverables
+   - Success metrics
+   - Next phase recommendations
+
+8. Quarterly Business Review Template
+   - Performance metrics
+   - Strategic recommendations
+   - ROI analysis
 
 ## Contributing
 
