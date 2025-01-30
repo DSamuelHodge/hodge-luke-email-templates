@@ -1,0 +1,15 @@
+{
+  "name": "hodge-luke-email-templates",
+  "version": "1.0.0",
+  "description": "Corporate email templates for Hodge Luke",
+  "main": "index.js",
+  "scripts": {
+    "dev": "react-email dev",
+    "export": "react-email export"
+  },
+  "dependencies": {
+    "@react-email/components": "^0.0.12",
+    "react-email": "^1.10.0",
+    "resend": "^2.0.0"
+  }
+}
