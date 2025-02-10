@@ -1,4 +1,15 @@
-import { Html, Head, Body, Container, Text, Section, Heading } from "@react-email/components";
+import {
+  Body,
+  Container,
+  Head,
+  Heading,
+  Hr,
+  Html,
+  Preview,
+  Section,
+  Text,
+} from "@react-email/components";
+import * as React from "react";
 
 const EngagementLetterEmail = ({
   clientName = "Client Name",
@@ -29,8 +40,9 @@ const EngagementLetterEmail = ({
   return (
     <Html>
       <Head />
-      <Body style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#f9f9f9", padding: "20px" }}>
-        <Container style={{ backgroundColor: "#ffffff", padding: "20px", borderRadius: "8px" }}>
+      <Preview>Engagement Letter for {projectName}</Preview>
+      <Body style={main}>
+        <Container style={container}>
           {/* Header */}
           <Section>
             <Heading style={{ color: "#007bff", fontSize: "24px" }}>Hodge Luke</Heading>
@@ -46,8 +58,8 @@ const EngagementLetterEmail = ({
 
           {/* Introduction */}
           <Section>
-            <Text>Dear {clientName},</Text>
-            <Text>
+            <Heading style={h1}>Dear {clientName},</Heading>
+            <Text style={text}>
               Thank you for choosing Hodge Luke as your digital transformation partner. We are excited to work with you on <b>{projectName}</b>. 
               This letter outlines our engagement terms and project specifications.
             </Text>
@@ -97,7 +109,7 @@ const EngagementLetterEmail = ({
 
           {/* Closing */}
           <Section>
-            <Text>
+            <Text style={text}>
               We look forward to partnering with you on this transformative journey. If you have any questions, please don't hesitate to reach out.
             </Text>
             <Text>Best regards,</Text>
@@ -105,6 +117,12 @@ const EngagementLetterEmail = ({
             <Text>Founder & CEO</Text>
             <Text>Hodge Luke</Text>
           </Section>
+
+          <Hr style={hr} />
+          <Text style={footer}>
+            Best regards,<br />
+            Hodge Luke Team
+          </Text>
 
           {/* Footer */}
           <Section style={{ fontSize: "12px", color: "#999", borderTop: "1px solid #ddd", paddingTop: "10px" }}>
@@ -115,6 +133,41 @@ const EngagementLetterEmail = ({
       </Body>
     </Html>
   );
+};
+
+const main = {
+  backgroundColor: "#ffffff",
+  fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+};
+
+const container = {
+  margin: "0 auto",
+  padding: "20px 0 48px",
+  maxWidth: "580px",
+};
+
+const h1 = {
+  color: "#333",
+  fontSize: "24px",
+  fontWeight: "bold",
+  margin: "40px 0",
+};
+
+const text = {
+  color: "#333",
+  fontSize: "16px",
+  lineHeight: "24px",
+};
+
+const hr = {
+  borderColor: "#cccccc",
+  margin: "20px 0",
+};
+
+const footer = {
+  color: "#666666",
+  fontSize: "14px",
+  lineHeight: "24px",
 };
 
 export default EngagementLetterEmail;

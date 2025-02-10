@@ -1,18 +1,22 @@
-import { Resend } from "@resend/node";
+import { Resend } from "resend";
 import { render } from "@react-email/render";
-import EngagementLetterEmail from "./EngagementLetterEmail.js";
+import EngagementLetterEmail from "./EngagementLetterEmail.jsx";
 
 const resend = new Resend(process.env.RESEND_API_KEY); // Store API key securely
 
 const sendEngagementLetter = async () => {
   try {
-    const htmlContent = render(<EngagementLetterEmail clientName="John Doe" projectName="AI Automation Project" />);
+    // Convert JSX to string before rendering
+    const emailHtml = render(EngagementLetterEmail({ 
+      clientName: "John Doe", 
+      projectName: "AI Automation Project" 
+    }));
     
     const response = await resend.emails.send({
-      from: "Derrick Hodge <derrick@yourdomain.com>",
-      to: "john.doe@example.com",
+      from: "Derrick Hodge <copilot@hodgedomain.com>",
+      to: "dshodge2020@outlook.com",
       subject: "Engagement Letter - AI Automation Project",
-      html: htmlContent,
+      html: emailHtml,
     });
 
     console.log("Email Sent Successfully!", response);

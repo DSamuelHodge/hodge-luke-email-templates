@@ -3,13 +3,27 @@
   "version": "1.0.0",
   "description": "Corporate email templates for Hodge Luke",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "react-email dev",
-    "export": "react-email export"
+    "export": "react-email export",
+    "start": "node -r dotenv/config SendEmail.js"
   },
   "dependencies": {
     "@react-email/components": "^0.0.12",
+    "@react-email/render": "^0.0.12",
+    "dotenv": "^16.4.7",
     "react-email": "^1.10.0",
     "resend": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.8",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/register": "^7.25.9"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
   }
 }
